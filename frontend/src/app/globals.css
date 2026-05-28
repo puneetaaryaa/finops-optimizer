@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-outfit: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-jetbrains: 'JetBrains Mono', 'Fira Code', monospace;
+  }
+  
+  body {
+    background-color: #090D16;
+    color: #F8FAFC;
+    font-family: var(--font-outfit);
+    overflow-x: hidden;
+  }
+
+  /* Custom Scrollbar for premium dashboard feel */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #090D16;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1E293B;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+  }
+}
+
+/* Glassmorphism utility classes */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-panel-glow-cyan {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 242, 254, 0.15);
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.05);
+}
+
+.glass-panel-glow-purple {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(127, 0, 255, 0.15);
+  box-shadow: 0 0 20px rgba(127, 0, 255, 0.05);
+}
+
+/* High-tech pulsing dots */
+.pulse-glow-cyan {
+  animation: pulse-cyan 2s infinite alternate;
+}
+
+.pulse-glow-purple {
+  animation: pulse-purple 2s infinite alternate;
+}
+
+@keyframes pulse-cyan {
+  0% {
+    box-shadow: 0 0 2px rgba(0, 242, 254, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 12px rgba(0, 242, 254, 0.9);
+  }
+}
+
+@keyframes pulse-purple {
+  0% {
+    box-shadow: 0 0 2px rgba(127, 0, 255, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 12px rgba(127, 0, 255, 0.9);
+  }
+}
+
+/* Grid overlay to look like a high-tech console */
+.tech-grid-bg {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
