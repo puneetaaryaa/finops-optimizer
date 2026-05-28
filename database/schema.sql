@@ -41,4 +41,4 @@ INSERT INTO scaling_logs (node_id, action_taken, timestamp) VALUES
 (2, 'Initialized node node-us-east-1b in region us-east-1.', NOW() - INTERVAL 12 HOUR),
 (3, 'Scale Up triggered: CPU load exceeded 90% (currently 92%). Adding replica capacity.', NOW() - INTERVAL 15 MINUTE),
 (4, 'Scale Down triggered: CPU load fell below 40% (currently 30%). Deallocated micro-instance.', NOW() - INTERVAL 3 HOUR),
-(7, 'Resource Warning: High workload detected (85% utilization). System in auto-scale queue.', NOW() - INTERVAL 45 MINUTE);p
+(7, 'Resource Warning: High workload detected (85% utilization). System in auto-scale queue.', NOW() - INTERVAL 45 MINUTE);
