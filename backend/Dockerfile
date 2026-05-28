@@ -8,8 +8,8 @@ WORKDIR /app
 # Copy dependency configs from backend folder
 COPY backend/package*.json ./
 
-# Install all dependencies (including devDependencies for tsc)
-RUN npm ci
+# Install all dependencies using npm install (Foolproof without lockfile)
+RUN npm install
 
 # Copy tsconfig and source code from backend folder
 COPY backend/tsconfig.json ./
@@ -29,9 +29,11 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=5000
 
-# Copy package configurations from backend folder (FIXED LINE HERE)
+# Copy package configurations from backend folder
 COPY backend/package*.json ./
-RUN npm ci --omit=dev
+
+# Install ONLY production dependencies
+RUN npm install --omit=dev
 
 # Copy compiled code from builder stage
 COPY --from=builder /app/dist ./dist
