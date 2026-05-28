@@ -12,8 +12,9 @@ COPY package*.json ./
 RUN npm ci
 
 # Copy tsconfig and source code
-COPY tsconfig.json ./
-COPY src/ ./src
+# Copy tsconfig and source code
+COPY backend/tsconfig.json ./
+COPY backend/src/ ./src
 
 # Compile TypeScript to production JavaScript inside dist/
 RUN npm run build
