@@ -5,14 +5,13 @@ FROM node:18-alpine AS builder
 
 WORKDIR /app
 
-# Copy dependency configs
-COPY package*.json ./
+# Copy dependency configs from backend folder
+COPY backend/package*.json ./
 
 # Install all dependencies (including devDependencies for tsc)
 RUN npm ci
 
-# Copy tsconfig and source code
-# Copy tsconfig and source code
+# Copy tsconfig and source code from backend folder
 COPY backend/tsconfig.json ./
 COPY backend/src/ ./src
 
@@ -30,8 +29,8 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=5000
 
-# Copy package configurations and install ONLY production dependencies
-COPY package*.json ./
+# Copy package configurations from backend folder (FIXED LINE HERE)
+COPY backend/package*.json ./
 RUN npm ci --omit=dev
 
 # Copy compiled code from builder stage
